@@ -5,8 +5,12 @@
 #include <stddef.h>
 #include <stdlib.h>
 
-
-
+#define INSTRUCTIONS              \
+	{                           \
+		{                     \
+			NULL, NULL      \
+		}                     \
+	}
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -39,7 +43,19 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-
+/**
+* struct help - argument for the current opcode
+* @data_struct: stack mode, stack (default) and queue
+* @argument: the arguments of the string
+*
+* Description: global structure used to pass data around the functions easily
+*/
+typedef struct help
+{
+	int data_struct;
+	char *argument;
+} help;
+help global;
 
 /* stack utility functions available in linked_list.c */
 stack_t *add_node(stack_t **stack, const int n);
@@ -47,26 +63,10 @@ stack_t *queue_node(stack_t **stack, const int n);
 void free_stack(stack_t *stack);
 size_t print_stack(const stack_t *stack);
 
-#define INSTRUCTIONS              \
-	{                           \
-		{"push", push},       \
-		    {"pall", pall},   \
-		    {"pint", pint},   \
-		    {"pop", pop},     \
-		    {"swap", swap},   \
-		    {"nop", nop},     \
-		    {"div", _div},    \
-		    {"mul", _mul},    \
-		    {"add", _add},    \
-		    {"sub", _sub},    \
-		    {"mod", mod},     \
-		    {"pchar", pchar}, \
-		    {"pstr", pstr},   \
-		    {"rotl", rotl},   \
-		    {"rotr", rotr},   \
-		{                     \
-			NULL, NULL      \
-		}                     \
-	}
+
+void opcode(stack_t **stack, char *str, unsigned int line_cnt);
+
+int is_digit(char *string);
+int isnumber(char *str);
 
 #endif
