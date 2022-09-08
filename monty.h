@@ -1,14 +1,22 @@
 #ifndef MONTY_H
 #define MONTY_H
 
-
-#include <stddef.h>
+#include <stdio.h>
+#include <ctype.h>
 #include <stdlib.h>
+#include <string.h>
+#include <stddef.h>
 
-#define INSTRUCTIONS              \
-	{                           \
+#define INSTRUCTIONS		\
+	{			\
+		{"push", push},       \
+		    {"pall", pall},   \
+		    {"pint", pint},   \
+		    {"pop", pop},     \
+		    {"swap", swap},   \
+		    {"nop", nop},     \
 		{                     \
-			NULL, NULL      \
+			NULL, NULL    \
 		}                     \
 	}
 
@@ -68,5 +76,13 @@ void opcode(stack_t **stack, char *str, unsigned int line_cnt);
 
 int is_digit(char *string);
 int isnumber(char *str);
+
+void push(stack_t **stack, unsigned int line_cnt);
+void pall(stack_t **stack, unsigned int line_cnt);
+void pint(stack_t **stack, unsigned int line_cnt);
+void swap(stack_t **stack, unsigned int line_cnt);
+void pop(stack_t **stack, unsigned int line_cnt);
+void nop(stack_t **stack, unsigned int line_cnt);
+
 
 #endif
