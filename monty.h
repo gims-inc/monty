@@ -7,19 +7,17 @@
 #include <string.h>
 #include <stddef.h>
 
-#define INSTRUCTIONS		\
-	{			\
-		{"push", push},       \
-		    {"pall", pall},   \
-		    {"pint", pint},   \
-		    {"pop", pop},     \
-		    {"swap", swap},   \
-		    {"nop", nop},     \
-		    {"add", _add},    \
-		{                     \
-			NULL, NULL    \
-		}                     \
-	}
+#define INSTRUCTIONS		  \
+	{			  \
+		{"push", push},   \
+		{"pall", pall},   \
+		{"pint", pint},   \
+		{"pop", pop},     \
+		{"swap", swap},   \
+		{"nop", nop},     \
+		{"add", _add},    \
+		{NULL, NULL}      \
+	}	
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -85,5 +83,6 @@ void swap(stack_t **stack, unsigned int line_cnt);
 void pop(stack_t **stack, unsigned int line_cnt);
 void nop(stack_t **stack, unsigned int line_cnt);
 
+void _add(stack_t **stack, unsigned int line_cnt);
 
 #endif
