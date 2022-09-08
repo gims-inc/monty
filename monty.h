@@ -1,6 +1,8 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#define _GNU_SOURCE
+
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
@@ -20,6 +22,10 @@
 		{"mul", _mul},    \
 		{"sub", _sub},    \
 		{"mod", mod},     \
+		{"pchar", pchar}, \
+		{"pstr", pstr},   \
+		{"rotl", rotl},   \
+		{"rotr", rotr},   \
 		{NULL, NULL}      \
 	}	
 
@@ -92,5 +98,10 @@ void _div(stack_t **stack, unsigned int line_cnt);
 void _sub(stack_t **stack, unsigned int line_cnt);
 void _mul(stack_t **stack, unsigned int line_cnt);
 void mod(stack_t **stack, unsigned int line_cnt);
+
+void pchar(stack_t **stack, unsigned int line_cnt);
+void pstr(stack_t **stack, unsigned int line_cnt);
+void rotl(stack_t **stack, unsigned int line_count);
+void rotr(stack_t **stack, unsigned int line_count);
 
 #endif
