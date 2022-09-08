@@ -2,4 +2,4 @@
 
 ## Author:
 
-	[Gabriel Musanga](https://github.com/gims-inc)
+[Gabriel Musanga](https://github.com/gims-inc)
