@@ -16,6 +16,10 @@
 		{"swap", swap},   \
 		{"nop", nop},     \
 		{"add", _add},    \
+		{"div", _div},    \
+		{"mul", _mul},    \
+		{"sub", _sub},    \
+		{"mod", mod},     \
 		{NULL, NULL}      \
 	}	
 
@@ -84,5 +88,9 @@ void pop(stack_t **stack, unsigned int line_cnt);
 void nop(stack_t **stack, unsigned int line_cnt);
 
 void _add(stack_t **stack, unsigned int line_cnt);
+void _div(stack_t **stack, unsigned int line_cnt);
+void _sub(stack_t **stack, unsigned int line_cnt);
+void _mul(stack_t **stack, unsigned int line_cnt);
+void mod(stack_t **stack, unsigned int line_cnt);
 
 #endif
